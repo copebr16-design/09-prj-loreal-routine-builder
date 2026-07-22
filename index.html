@@ -1,34 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>L'Oréal | Smart Routine &amp; Product Advisor</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding ------->
+
       <header class="site-header">
-        <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
+        <div class="header-top">
+          <img src="img/loreal-logo.png" alt="L'Oréal Logo" class="logo" />
+          <button id="langToggle" class="lang-btn">عربي</button>
+        </div>
         <h1 class="site-title">Smart Routine &amp; Product Advisor</h1>
       </header>
 
-      <!-- Category Filter -->
       <div class="search-section">
+        <input type="text" id="searchInput" placeholder="Search products by name or brand..." class="search-input"/>
         <select id="categoryFilter">
           <option value="" disabled selected>Choose a Category</option>
           <option value="cleanser">Cleansers</option>
-          <option value="moisturizer">Moisturizers & Treatments</option>
+          <option value="moisturizer">Moisturizers</option>
+          <option value="skincare">Skincare</option>
           <option value="haircare">Haircare</option>
           <option value="makeup">Makeup</option>
           <option value="hair color">Hair Color</option>
@@ -39,33 +36,29 @@
         </select>
       </div>
 
-      <!-- Products Grid -->
       <div id="productsContainer" class="products-grid"></div>
 
-      <!-- Selected Products -->
       <div class="selected-products">
-        <h2>Selected Products</h2>
-        <div id="selectedProductsList"></div>
+        <div class="selected-header">
+          <h2>Selected Products</h2>
+          <button id="clearAll" class="clear-btn">Clear All</button>
+        </div>
+        <div id="selectedProductsList"><p class="no-selection">No products selected yet.</p></div>
         <button id="generateRoutine" class="generate-btn">
           <i class="fa-solid fa-wand-magic-sparkles"></i> Generate Routine
         </button>
       </div>
 
-      <!------- Chat Area ------->
       <section class="chatbox">
-        <h2>Let's Build Your Routine</h2>
-        <div id="chatWindow" class="chat-window"></div>
-
+        <h2>About Your Routine</h2>
+        <div id="chatWindow" class="chat-window">
+          <div class="chat-message assistant">
+            <div class="bubble">Hi! Select products above and click <strong>Generate Routine</strong> to get your personalized L'Oréal beauty routine. You can also ask me anything about skincare, haircare, or makeup!</div>
+          </div>
+        </div>
         <form id="chatForm" class="chat-form">
           <label for="userInput" class="visually-hidden">Message</label>
-          <input
-            id="userInput"
-            name="userInput"
-            type="text"
-            placeholder="Ask me about products or routines…"
-            autocomplete="off"
-            required
-          />
+          <input id="userInput" name="userInput" type="text" placeholder="Ask a follow-up question..." autocomplete="off" required/>
           <button type="submit" id="sendBtn">
             <i class="fa-solid fa-paper-plane"></i>
             <span class="visually-hidden">Send</span>
@@ -73,18 +66,16 @@
         </form>
       </section>
 
-      <!------- Footer Links ------->
       <footer class="site-footer">
         <p>&copy; 2025 L'Oréal. All rights reserved.</p>
         <nav>
-          <!-- These URLs are placeholders -->
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Use</a>
-          <a href="#">Contact</a>
+          <a href="https://www.loreal.com/en/privacy-policy/" target="_blank">Privacy Policy</a>
+          <a href="https://www.loreal.com/en/terms-and-conditions/" target="_blank">Terms of Use</a>
+          <a href="https://www.loreal.com/en/contact-us/" target="_blank">Contact</a>
         </nav>
       </footer>
-    </div>
 
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
